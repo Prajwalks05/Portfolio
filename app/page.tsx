@@ -153,7 +153,7 @@ export default function Portfolio() {
       title: "E-book Library",
       description:
         "Free e-book library platform built with React. Features responsive design with Bootstrap and provides easy access to browse and read e-books.",
-      link: "http://bookbyte.csproject.org",
+      link: "https://ebookbyte.vercel.app/",
       tech: ["React", "HTML", "CSS", "Bootstrap",""],
     },
     {
