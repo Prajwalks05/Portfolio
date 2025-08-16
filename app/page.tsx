@@ -16,6 +16,7 @@ import {
   GraduationCap,
   User,
   ChevronDown,
+  Trophy
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -129,7 +130,11 @@ export default function Portfolio() {
     "Java",
     "Python",
     "JavaScript",
-    "React",
+    "React JS",
+    "Next JS",
+    "Dart",
+    "Flutter",
+    "Supabase Postgresql",
     "Flutter",
     "Dart",
     "HTML",
@@ -153,8 +158,8 @@ export default function Portfolio() {
       title: "E-book Library",
       description:
         "Free e-book library platform built with React. Features responsive design with Bootstrap and provides easy access to browse and read e-books.",
-      link: "https://ebookbyte.vercel.app/",
-      tech: ["React", "HTML", "CSS", "Bootstrap",""],
+      link: "http://ebookbyte.vercel.app",
+      tech: ["React", "HTML", "CSS", "Bootstrap", ""],
     },
     {
       title: "Inventory Management System",
@@ -170,6 +175,27 @@ export default function Portfolio() {
       link: "https://primewalls.vercel.app/",
       tech: ["Flutter", "Dart", "Cross-platform"],
     },
+    {
+      title: "ChronoScope",
+      description:
+        "Cross-platform historical viewer,View past incident important discoviries made with Next.js",
+      link: "https://chrono-scope.vercel.app/",
+      tech: ["Next.js", "Tailwind", "Glassmorphic", "shadCN", "Lucide React", "Radix UI"],
+    },
+    {
+      title: "Instagram Clone",
+      description:
+        "Cross-platform wallpaper application for Android and Windows. Features daily refresh, favorites, and Windows wallpaper automation via local scripts. .apk and .exe is available in the website",
+      link: "https://primewalls.vercel.app/",
+      tech: ["Flutter", "Dart", "Android.apk", "WIndows.exe", "Custom Components"],
+    },
+    {
+      title: "Loomio",
+      description:
+        "A Pet Adoption platform made with React+Vite(Framework) with role based access with functionality separated by Admin,Shelter admin and regular Users,Helps in finding a pet and also helps in adoption process for shelters and animal lovers",
+      link: "https://loomio-project.vercel.app",
+      tech: ["React", "VIte", "Supabase", "API", "Express", "Node.js"],
+    }
   ]
 
   const education = [
@@ -196,14 +222,23 @@ export default function Portfolio() {
     },
   ]
 
+  const hackathons = [
+    {
+      title: "TheTime Hackathon",
+      status: "Announced-3rd place Winner",
+      credential_url: "https://fcfgedckgnhxmvitfryd.supabase.co/functions/v1/redirect/6ruSkG"
+    },
+  ]
+
   const navItems = [
     { id: "home", label: "Home", icon: User },
     { id: "about", label: "About", icon: User },
     { id: "skills", label: "Skills", icon: Code },
     { id: "projects", label: "Projects", icon: Briefcase },
+    { id: "hackathons", label: "Hackathons", icon: Trophy },
     { id: "education", label: "Education", icon: GraduationCap },
     { id: "contact", label: "Contact", icon: Mail },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
@@ -211,14 +246,13 @@ export default function Portfolio() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <motion.div whileHover={{ scale: 1.05 }} className="text-2xl font-bold text-white">
-              
+
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -227,9 +261,8 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    activeSection === item.id ? "text-purple-400" : "text-gray-300 hover:text-white"
-                  }`}
+                  className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.id ? "text-purple-400" : "text-gray-300 hover:text-white"
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -617,8 +650,58 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Hackathons Section */}
+      <section id="hackathons" className="py-20 px-4 bg-slate-800/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-white text-center mb-12">Hackathons</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {hackathons.map((hackathon, index) => (
+                <motion.div
+                  key={hackathon.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Card className="bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 h-full">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center justify-between">
+                        {hackathon.title}
+                        {hackathon.credential_url && (
+                          <a
+                            href={hackathon.credential_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-purple-400 hover:text-purple-300 transition-colors"
+                          >
+                            <ExternalLink size={20} />
+                          </a>
+                        )}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-gray-300 mb-4 text-base leading-relaxed">
+                        Status: <span className="font-semibold text-purple-300">{hackathon.status}</span>
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
       {/* Education Section */}
-      <section id="education" className="py-20 px-4 bg-slate-800/50">
+      <section id="education" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -662,7 +745,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
