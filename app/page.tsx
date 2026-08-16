@@ -431,8 +431,6 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
-
-      {/* Projects Section */}
       {/* Projects Section */}
       <section id="projects" className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4">
@@ -464,7 +462,7 @@ export default function Portfolio() {
                         className="hover:text-blue-600 transition-colors inline-flex items-center gap-2 group/link"
                       >
                         {project.title}
-                        <ExternalLink className="w-5 h-5 text-blue-500 opacity-0 group-hover/link:opacity-100 transition-all duration-300 transform -translate-x-2 group-hover/link:translate-x-0" />
+                        <ExternalLink className="w-5 h-5 text-blue-500 text transition-all duration-300 transform -translate-x-2 group-hover/link:translate-x-0" />
                       </a>
                     </h3>
                     <p className="text-slate-800 font-medium mb-8 leading-relaxed relative z-10">
