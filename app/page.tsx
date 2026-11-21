@@ -161,26 +161,26 @@ export default function Portfolio() {
       {/* Dynamic React Bits Grainient Background fixed to match reference texture */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[#b3b3e3]">
         <Grainient
-          color1="#b3b3e3"
-          color2="#9e98bb"
-          color3="#eab1ef"
+          color1="#98babb"
+          color2="#efebb1"
+          color3="#e3bab3"
           timeSpeed={1}
           colorBalance={0.0}
           warpStrength={2.3}
           warpFrequency={7.8}
           warpSpeed={2.8}
           warpAmplitude={50.0}
-          blendAngle={0.0}
-          blendSoftness={0.2}
+          blendAngle={174.0}
+          blendSoftness={0.5}
           rotationAmount={500.0}
           noiseScale={2.0}
-          grainAmount={0.08}
-          grainScale={2.0}
+          grainAmount={0.05}
+          grainScale={1.5}
           grainAnimated={false}
           contrast={1.5}
           gamma={1.0}
           saturation={1.0}
-          centerX={0.13}
+          centerX={0.0}
           centerY={0.0}
           zoom={0.95}
           className="w-full h-full opacity-100 mix-blend-normal"
